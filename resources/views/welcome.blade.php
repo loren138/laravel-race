@@ -15,6 +15,7 @@
 			}
 			
 			table { color: #111; }
+			td, th { width: 20px; text-align:center; }
 			
 			.container {
 				text-align: center;
@@ -49,32 +50,16 @@
 				var row = $("<tr>");
 				row.append($("<td>").text(data['inc']));
 				row.append($("<td>").text(data['vals'][data['inc']]));
-				row.append($("<td>").text(data['vals']['a']));
-				row.append($("<td>").text(data['vals']['b']));
-				row.append($("<td>").text(data['vals']['c']));
-				row.append($("<td>").text(data['vals']['d']));
-				row.append($("<td>").text(data['vals']['e']));
-				row.append($("<td>").text(data['vals']['f']));
-				row.append($("<td>").text(data['vals']['g']));
-				row.append($("<td>").text(data['vals']['h']));
-				row.append($("<td>").text(data['vals']['i']));
-				row.append($("<td>").text(data['vals']['j']));
-				row.append($("<td>").text(data['vals']['k']));
-				row.append($("<td>").text(data['vals']['l']));
-				row.append($("<td>").text(data['vals']['m']));
-				row.append($("<td>").text(data['vals']['n']));
-				row.append($("<td>").text(data['vals']['o']));
-				row.append($("<td>").text(data['vals']['p']));
-				row.append($("<td>").text(data['vals']['q']));
-				row.append($("<td>").text(data['vals']['r']));
-				row.append($("<td>").text(data['vals']['s']));
-				row.append($("<td>").text(data['vals']['t']));
-				row.append($("<td>").text(data['vals']['u']));
-				row.append($("<td>").text(data['vals']['v']));
-				row.append($("<td>").text(data['vals']['w']));
-				row.append($("<td>").text(data['vals']['x']));
-				row.append($("<td>").text(data['vals']['y']));
-				row.append($("<td>").text(data['vals']['z']));
+				
+				letters = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
+				
+				for (l2 in letters) {
+					l = letters[l2];
+					if (!(l in data['vals'])) {
+						data['vals'][l] = 'M';
+					}
+					row.append($("<td>").text(data['vals'][l]));
+				}
 				$("table tbody").append(row);
 				console.log($("table tbody tr").length);
 				if ($("table tbody tr").length == 27) {
